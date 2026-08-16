@@ -1,4 +1,30 @@
 package com.securevault.core;
 
 public class VaultItem {
+
+    private String itemName;
+
+    private double itemValue;
+
+    // constructor
+    public VaultItem(String itemName, double itemValue) throws InvalidItemValueException {
+        if (itemValue <= 0) {
+            throw new InvalidItemValueException("Sorry, that value is too low.");
+        }
+        this.itemName = itemName;
+        this.itemValue = itemValue;
+    }
+    // getter
+    public String getItemName() {
+        return itemName;
+    }
+
+    public double getItemValue() {
+        return itemValue;
+    }
+
+    @Override
+    public String toString() {
+       return "Item: " + itemName + ", Value: $" + itemValue;
+    }
 }
